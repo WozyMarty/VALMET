@@ -1,0 +1,22 @@
+// tsconfig.app.json (O FILHO "APP" - COMPILA A PASTA SRC)
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "types": ["vite/client"]
+  },
+  // AQUI ESTÁ A MUDANÇA MAIS IMPORTANTE:
+  // Sendo explícitos sobre cada tipo de arquivo que deve ser incluído.
+  "include": [
+    "src/**/*.ts", 
+    "src/**/*.jsx", 
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+  ]
+}
