@@ -1,0 +1,54 @@
+/* Exemplo: src/styles/custom-alert-dialog.css */
+
+/* Você pode tentar estilizar as classes que o shadcn/ui AlertDialog usa,
+   mas isso pode ser frágil se as classes internas mudarem.
+   É mais seguro adicionar suas próprias classes ao AlertDialogContent, etc. */
+
+.meu-alert-dialog-content {
+  background-color: #2D3748; /* Um cinza escuro, por exemplo */
+  color: #E2E8F0; /* Texto claro */
+  border: 1px solid #4A5568;
+  border-radius: 0.75rem; /* rounded-lg */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 450px !important; /* Para não ficar muito largo */
+  padding: 1.5rem; /* p-6 */
+}
+
+.meu-alert-dialog-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem; /* text-xl */
+  font-weight: 600;   /* font-semibold */
+  color: #F56565;     /* Um vermelho para o título do erro */
+}
+
+.meu-alert-dialog-title svg { /* Estilizando o ícone Lucide */
+  margin-right: 0.5rem; /* mr-2 */
+  height: 1.25rem;      /* h-5 */
+  width: 1.25rem;       /* w-5 */
+}
+
+.meu-alert-dialog-description {
+  margin-top: 0.75rem; /* mt-3 */
+  font-size: 0.875rem; /* text-sm */
+  color: #A0AEC0;      /* Um cinza mais claro para a descrição */
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.meu-alert-dialog-footer {
+  margin-top: 1.5rem; /* mt-6 */
+  display: flex;
+  justify-content: flex-end; /* Alinha o botão OK à direita */
+}
+
+.meu-alert-dialog-action-ok {
+  background-color: #E53E3E; /* Vermelho para o botão OK */
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem; /* rounded-md */
+  font-weight: 500;
+}
+.meu-alert-dialog-action-ok:hover {
+  background-color: #C53030; /* Vermelho mais escuro no hover */
+}

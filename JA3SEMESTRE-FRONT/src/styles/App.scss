@@ -1,0 +1,125 @@
+
+
+    @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+.b-grid-subgrid{
+    background: transparent !important;
+}
+.demo-header #title {
+    background-image: url('/iconvalment.jpg') !important;
+}
+
+/* Remove elementos de watermark específicos */
+.b-watermark,
+.b-branding,
+.b-trial-watermark {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+
+.b-gantt {
+    > .b-toolbar {
+        border-bottom : 1px solid;
+
+        > .b-content-element {
+            > .b-widget:not(.b-last-visible-child) {
+                margin-inline-end : 1em;
+            }
+
+            .b-button {
+                min-width : 3.5em;
+            }
+        }
+    }
+}
+
+.filter-by-name label {
+    display : none;
+}
+
+.b-theme-stockholm .b-gantt > .b-toolbar {
+    border-bottom-color : #d8d9da;
+}
+
+.b-theme-classic .b-gantt > .b-toolbar {
+    background-color    : #f1f1f4;
+    border-bottom-color : #b0b0b6;
+
+    .b-has-label label {
+        color : #555;
+    }
+}
+
+.b-theme-classic-light .b-gantt > .b-toolbar {
+    background-color    : #fff;
+    border-bottom-color : #e0e0e0;
+}
+
+.b-theme-material .b-gantt > .b-toolbar {
+    background-color : #fff;
+    border-bottom    : none;
+
+    .filter-by-name label {
+        display : block;
+    }
+}
+
+.b-theme-classic-dark .b-gantt > .b-toolbar {
+    background-color    : #2b2b2f;
+    border-bottom-color : #2a2b2e;
+}
+
+.b-status-column-cell {
+    font-size : 0.8em;
+}
+
+.b-status-column-cell i::before {
+    margin-inline-end : .5em;
+}
+
+.Started {
+    color : #bbb;
+}
+
+.Late {
+    color : #ff5722;
+}
+
+.Completed {
+    color : #34d844;
+}
+
+.settings-menu .b-slider {
+    margin-bottom : 0.5em;
+}
+
+
+/* Estilo base para o container do badge dentro da célula */
+.priority-badge-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Ou flex-start se preferir alinhado à esquerda */
+  padding: 0.25em 0.5em;
+  border-radius: 1em; /* Mais arredondado para o badge */
+  font-size: 0.8em;
+  font-weight: 500;
+  color: #fff; /* Cor do texto padrão para os badges */
+  gap: 0.3em; /* Espaço entre o ícone e o texto */
+  cursor: default; /* Para não parecer clicável se não for */
+  box-sizing: border-box;
+  max-width: fit-content; /* Para o badge não ocupar toda a célula */
+  margin: auto; /* Para centralizar o badge se a célula for maior */
+}
+
+
+/* Cores dos Badges */
+.prio-high-badge {
+  background-color: #E53E3E; /* Vermelho */
+}
+.prio-medium-badge {
+  background-color: #DD6B20; /* Laranja */
+}
+.prio-low-badge {
+  background-color: #3182CE; /* Azul */
+}

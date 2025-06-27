@@ -1,0 +1,121 @@
+/* SessionExpireDialog.css */
+
+/* Estilo geral do diálogo */
+.session-expire-dialog {
+  max-width: 550px !important;
+  border-radius: 12px;
+  background-color: #ffffff;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+/* Header com layout flex para alinhar ícone e texto */
+.session-expire-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* Espaço entre o ícone e o texto */
+  text-align: left; /* Alinha o texto à esquerda */
+  margin-bottom: 1.5rem;
+}
+
+/* Ícone */
+.session-expire-icon {
+  color: #f59e0b; /* Um tom de âmbar/alerta */
+  flex-shrink: 0; /* Impede que o ícone seja esmagado */
+}
+/* ================ OPÇÃO 2: PULSAR SUTIL ================ */
+
+/* Define a animação de pulsação */
+@keyframes pulse-hourglass {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.08); /* Aumenta um pouco o tamanho */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Aplica a animação ao ícone */
+.animate-hourglass svg {
+  animation: pulse-hourglass 2s ease-in-out infinite; /* 2s por pulso, suave, repete infinitamente */
+}
+
+/* Conteúdo de texto (título e descrição) */
+.session-expire-text-content {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Título */
+.session-expire-title {
+  font-size: 1.5rem; /* 24px */
+  font-weight: 600;
+  color: #1a202c; /* Cinza bem escuro, quase preto */
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
+}
+
+/* Descrição */
+.session-expire-description {
+  font-size: 1rem; /* 16px */
+  color: #4a5568; /* Cinza médio */
+}
+
+/* Destaque para o contador */
+.session-expire-countdown {
+  font-weight: 700;
+  color: #1a202c; /* Cor igual ao título para destaque */
+  padding: 2px 6px;
+  border-radius: 4px;
+  background-color: #f7fafc;
+  border: 1px solid #e2e8f0;
+}
+
+/* Rodapé com os botões */
+.session-expire-footer {
+  display: flex;
+  justify-content: flex-end; /* Alinha os botões à direita */
+  gap: 0.75rem; /* Espaço entre os botões */
+}
+
+/* Estilo Base dos Botões (para evitar repetição) */
+.session-expire-action-primary,
+.session-expire-action-secondary {
+  height: 44px;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  cursor: pointer;
+}
+
+/* Botão de Ação Principal (Prolongar Sessão) */
+.session-expire-action-primary {
+  background-color: #2563eb; /* Azul profissional */
+  color: white;
+}
+
+.session-expire-action-primary:hover {
+  background-color: #1d4ed8; /* Azul um pouco mais escuro */
+}
+
+/* Botão de Ação Secundária (Sair) */
+.session-expire-action-secondary {
+  background-color: transparent;
+  color: #4a5568;
+  box-shadow: inset 0 0 0 1px #cbd5e1; /* Borda sutil */
+}
+
+.session-expire-action-secondary:hover {
+  background-color: #f7fafc; /* Fundo muito claro ao passar o mouse */
+  color: #1a202c;
+}

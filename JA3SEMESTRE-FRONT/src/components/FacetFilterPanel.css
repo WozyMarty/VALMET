@@ -1,0 +1,186 @@
+/* --- Contêiner Principal (Seu Estilo) --- */
+.facet-filter-panel {
+    width: 260px;
+    height: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+    /* Usei variáveis para facilitar a customização com temas claro/escuro no futuro */
+    --filter-bg: #f1f5f9;
+    --filter-border: #e2e8f0;
+    --filter-text-primary: #111827;
+    --filter-text-secondary: #374151;
+    --filter-accent-bg: #f1f5f9;
+
+    background-color: var(--filter-bg);
+    border-left: 1px solid var(--filter-border);
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Título (Seu Estilo) --- */
+.facet-filter-panel h3 {
+    flex-shrink: 0;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--filter-text-primary);
+    margin: 0;
+    padding-bottom: 1rem;
+}
+.filter-scroll-container {
+    flex-grow: 1;           /* Faz esta div ocupar todo o espaço restante */
+    overflow-y: auto;       /* Cria a barra de scroll vertical, se necessário */
+    min-height: 0;          /* Truque de flexbox para garantir o encolhimento correto */
+    padding: 1rem;          /* Espaçamento interno para o conteúdo */
+}
+/* --- Nosso "Accordion" Customizado (Estilos Mesclados) --- */
+.facet-accordion-container {
+    width: 100%;
+}
+
+.facet-accordion-item {
+    border-bottom: 1px solid var(--filter-border);
+}
+.facet-accordion-item:last-child {
+    border-bottom: none;
+}
+
+.facet-accordion-trigger {
+    all: unset;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 12px 4px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--filter-text-secondary);
+    cursor: pointer;
+    border-radius: 4px; /* Adicionado para melhor efeito de hover */
+    transition: background-color 0.2s ease-in-out;
+}
+.facet-accordion-trigger:hover {
+    background-color: var(--filter-accent-bg);
+}
+
+.facet-accordion-chevron {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.2s ease-in-out;
+}
+.facet-accordion-trigger.open .facet-accordion-chevron {
+    transform: rotate(180deg);
+}
+
+/* --- A CORREÇÃO PRINCIPAL ESTÁ AQUI --- */
+.facet-accordion-content {
+    /* Trocamos 'display: grid' por 'max-height' para uma animação mais robusta que esconde 100% do conteúdo */
+    max-height: 0;
+    overflow: hidden; /* Garante que nada "vaze" para fora quando fechado */
+    transition: max-height 0.3s ease-in-out;
+}
+.facet-accordion-content.open {
+    /* Define uma altura máxima grande o suficiente para o conteúdo quando aberto. Ajuste se necessário. */
+    max-height: 500px; 
+}
+.filter-options-container {
+    /* A propriedade 'overflow: hidden' aqui não é mais necessária, pois o pai já controla */
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
+/* --- Estilos de Checkbox e Label (Seu Design) --- */
+.filter-option-row {
+  padding: 4px 0;
+}
+
+.color-swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    vertical-align: middle;
+}
+.filter-label-container {
+    display: flex;
+    align-items: center; /* <<< AQUI ESTÁ A CHAVE DO ALINHAMENTO PERFEITO */
+    cursor: pointer;
+    user-select: none;
+    width: 100%;
+}
+/* O texto do label */
+.filter-label-text {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #4b5563;
+    margin-left: 8px; /* Espaçamento entre a checkbox e o texto */
+    transition: font-weight 0.1s, color 0.1s;
+    display: flex;
+    align-items: center;
+    height: 18px;
+}
+.facet-filter-checkbox {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    margin: 0; /* Remove qualquer margem padrão do input */
+    width: 18px;
+    height: 18px;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: transform 0.1s ease-in-out, background-color 0.1s, border-color 0.1s;
+    flex-shrink: 0; /* Impede que o checkbox encolha */
+}
+.filter-label-container:has(.facet-filter-checkbox:checked) .filter-label-text {
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* O novo ícone de "check" (maior e mais grosso para combinar) */
+.facet-filter-checkbox::before {
+    content: "";
+    /* --- ALTERAÇÃO AQUI --- */
+    width: 5px;   /* ANTES: 4px */
+    height: 10px; /* ANTES: 8px */
+    margin-bottom: 2px;
+    border-bottom: 2.5px solid white; /* ANTES: 2px */
+    border-right: 2.5px solid white;  /* ANTES: 2px */
+    transform: rotate(45deg) scale(0);
+    transform-origin: center;
+    transition: 120ms transform ease-in-out;
+}
+
+.facet-filter-checkbox:checked {
+    border-color: #2563eb;
+    background-color: #2563eb;
+    transform: scale(1.1);
+}
+
+.facet-filter-checkbox:checked::before {
+    transform: rotate(45deg) scale(1);
+}
+
+.filter-option-row label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #4b5563;
+    margin-left: 8px;
+    cursor: pointer;
+    user-select: none;
+    transition: font-weight 0.1s, color 0.1s;
+    display: flex; /* Adicionado para alinhar a bolinha de cor */
+    align-items: center; /* Adicionado para alinhar a bolinha de cor */
+}
+
+.facet-filter-checkbox:checked + label {
+    font-weight: 600;
+    color: #1f2937;
+}

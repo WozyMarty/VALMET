@@ -1,0 +1,71 @@
+/* Estilo para o botão principal que contém o ícone de globo */
+.lang-switcher-btn {
+    background-color: #ffffff; /* Fundo branco sólido para integrar com o header */
+    border: 1px solid #e2e8f0; /* Borda sutil para definição */
+    border-radius: 50%; /* Deixa o botão perfeitamente redondo */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Efeito de hover e foco no botão */
+.lang-switcher-btn:hover {
+    border-color: #007bff; /* Uma cor de destaque no hover */
+    transform: scale(1.05); /* Efeito de zoom sutil */
+}
+
+.lang-switcher-btn:focus-visible {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+/* Garante que a imagem do ícone se ajuste bem dentro do botão */
+.lang-switcher-btn img {
+    width: 22px; 
+    height: 22px;
+    outline: none; /* Remove qualquer outline padrão da imagem */
+    border: none;
+}
+
+/* Estilo para a caixa do menu dropdown */
+.lang-switcher-menu {
+    background-color: white; /* Fundo branco sólido solicitado */
+    border: 1px solid #e2e8f0;
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0.5rem;
+    margin-top: 8px; /* Espaço entre o botão e o menu */
+    width: 180px; /* Largura do menu */
+}
+
+/* Estilo para cada item individual no menu */
+.lang-switcher-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem; /* Espaçamento entre a bandeira e o texto */
+    padding: 0.5rem 0.75rem;
+    cursor: pointer; /* Cursor de ponteiro solicitado */
+    border-radius: 6px;
+    font-size: 14px;
+    color: #334155;
+    transition: background-color 0.15s ease-in-out;
+}
+
+/* Efeito de hover solicitado */
+.lang-switcher-item:hover {
+    background-color: #f1f5f9; /* Fundo cinza claro no hover */
+}
+
+/* Estilo para as imagens das bandeiras dentro do menu */
+.lang-switcher-item img {
+    width: 30px;
+    height: 24px;
+    object-fit: cover;
+    border-radius: 3px;
+    flex-shrink: 0;
+}
