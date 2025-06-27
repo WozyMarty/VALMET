@@ -1,1 +1,1 @@
-insira os arquivos do "pages1" & "pages2" aqui 
+extraia os arquivos do "pages1" aqui 
